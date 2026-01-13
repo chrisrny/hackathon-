@@ -11,11 +11,13 @@
   "dependencies": {
     "mongodb": "^7.0.0",
     "next": "16.1.1",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react": "^19.2.3",
+    "react-dom": "19.2.3",
+    "reaxt": "^0.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/gensync": "^1.0.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -23,5 +25,8 @@
     "eslint-config-next": "16.1.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "@babel/core": "^7.24.0"
   }
 }
