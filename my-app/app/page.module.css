@@ -1,13 +1,14 @@
 
 
-.header{
-    height: 60px;
-  background: rgb(244, 205, 133);
+.header {
+  height: 60px;
+  background: rgb(249, 221, 167);
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  opacity: 0.9;
 }
 .boutton{
     background: none;
@@ -29,8 +30,23 @@
   opacity: 0.8;
 }
 
-.box{
-  margin-top:40px;
-  display: flex;
-  gap:20px;
+
+.box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 30px;
+  padding: 20px;
+  margin-left: 20px; 
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+
+body{
+  background-image: url(./public/images/girage.jpg);
+}
+.logo img {
+  height: 100px;
+  width: auto;
 }

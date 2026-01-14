@@ -19,19 +19,24 @@ export default function Home() {
   }, []);
 
   return(
-  <div>
-    <header className={styles.header}>
-      <button className={styles.boutton}>
-      <div className={styles.points}></div>
-      <div className={styles.points}></div>
-      <div className={styles.points}></div>
-      </button>
-    </header>
-    <div className={styles.box}>
-      {animaux.map(a => (
-        <AnimalCard key={a._id.toString()} animal={a} />
-      ))}
+    <div className={styles.page}>
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          <img src="https://acces-culture.fr/assets/images/thumbs/68beaf738951e3df165be79c_zoo-mulhouse.png" alt="Logo" />
+        </div>
+
+        <button className={styles.boutton}>
+          <div className={styles.points}></div>
+          <div className={styles.points}></div>
+          <div className={styles.points}></div>
+        </button>
+      </header>
+
+      <div className={styles.box}>
+        {animaux.map(a => (
+          <AnimalCard key={a._id.toString()} animal={a} />
+        ))}
+      </div>
     </div>
-  </div>
   )
 }
