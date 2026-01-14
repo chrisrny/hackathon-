@@ -44,7 +44,7 @@
 
 
 body{
-  background-image: url(./public/images/girage.jpg);
+  background-image: url(../public/images/girage.jpg);
 }
 .logo img {
   height: 100px;

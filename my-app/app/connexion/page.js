@@ -32,7 +32,7 @@ export default function Login() {
       if (response.ok) {
         const { mot_de_passe, ...userSansPassword } = data;
         localStorage.setItem("user", JSON.stringify(userSansPassword));
-        router.push("/profil");
+        router.push("/home");
       }
     } catch (error) {
       console.error(error);
