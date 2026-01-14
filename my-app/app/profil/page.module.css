@@ -1,0 +1,41 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  background-image: url("https://www.explore-grandest.com/app/uploads/2025/11/sortie-des-girafes-high-scaled-1920par1080-1035x480.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 350px;
+}
+
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #4CAF50;
+}
+
+.nom {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.info {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}

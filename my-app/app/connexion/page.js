@@ -1,32 +1,50 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./connexion.module.css";
+import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
 
 export default function Login() {
-  const emailverif = "Mulhouse.zoo@gmail.com";
-  const passwordverif = "Animaux";
-
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setMessage("");
 
-    if (email === emailverif && password === passwordverif) {
-      setSuccess(true);
-      setMessage("Connexion réussie ");
-    } else {
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      setMessage(data.message);
+      setSuccess(response.ok);
+
+      if (response.ok) {
+        const { mot_de_passe, ...userSansPassword } = data;
+        localStorage.setItem("user", JSON.stringify(userSansPassword));
+        router.push("/profil");
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage("Erreur serveur");
       setSuccess(false);
-      setMessage("Email ou mot de passe incorrect ");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className={styles.page}>
-     
       <div className={styles.box}>
         <h2 className={styles.title}>Connexion</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -38,7 +56,6 @@ export default function Login() {
             required
             className={styles.inputField}
           />
-
           <input
             type="password"
             placeholder="Mot de passe"
@@ -47,10 +64,13 @@ export default function Login() {
             required
             className={styles.inputField}
           />
-
-          <input type="submit" value="Connexion" className={styles.submitButton} />
+          <input
+            type="submit"
+            value={loading ? "Connexion..." : "Connexion"}
+            disabled={loading}
+            className={styles.submitButton}
+          />
         </form>
-
         {message && (
           <p
             className={styles.message}
