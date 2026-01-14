@@ -1,7 +1,7 @@
 .card {
   width: 20vw;
   height: 20vw;
-  background-color: #008080;
+  background-color: #f4cd85;
   border-radius: 50%;
   text-align: center;
   display: flex;
@@ -9,6 +9,8 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.2s;
+  overflow: hidden; 
+  border: 4px solid white;
 }
 
 .card:hover {
@@ -18,4 +20,24 @@
 .card h3 {
   margin: 0 0 8px;
   color: white;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.overlay {
+  position: absolute;
+  width: 80px;              /* taille de la bulle centrale */
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay:hover{
+  background-color: black;
 }
