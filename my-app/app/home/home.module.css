@@ -1,7 +1,7 @@
 
 
 .header {
-  height: 60px;
+  height: 100px;
   background: rgb(249, 221, 167);
   color: white;
   display: flex;
@@ -42,11 +42,19 @@
   margin-top: 30px;
 }
 
-
-body{
-  background-image: url(../public/images/girage.jpg);
+body {
+  margin: 0;
 }
+
 .logo img {
   height: 100px;
   width: auto;
+}
+.page {
+  min-height: 100vh;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../public/images/girage.jpg");
+  background-size: cover;
+  background-position: center;
 }

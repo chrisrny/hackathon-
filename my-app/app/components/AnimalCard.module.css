@@ -30,14 +30,15 @@
 
 .overlay {
   position: absolute;
-  width: 80px;              /* taille de la bulle centrale */
+  width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent */
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .overlay:hover{
   background-color: black;
+  
 }
