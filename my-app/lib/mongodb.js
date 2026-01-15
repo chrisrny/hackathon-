@@ -1,12 +1,26 @@
 import { MongoClient } from "mongodb";
 
-const uri = "mongodb://127.0.0.1:27017";
-const client = new MongoClient(uri);
+if (!process.env.MONGODB_URI) {
+  throw new Error("Veuillez définir MONGODB_URI dans .env.local");
+}
 
+const uri = process.env.MONGODB_URI;
+
+let client;
 let clientPromise;
-if (!clientPromise) {
+
+if (process.env.NODE_ENV === "development") {
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(uri);
+    global._mongoClientPromise = client.connect();
+  }
+  clientPromise = global._mongoClientPromise;
+} else {
+  client = new MongoClient(uri);
   clientPromise = client.connect();
 }
+
+export default clientPromise;
 
 export async function getDB() {
   const client = await clientPromise;
