@@ -1,4 +1,4 @@
-// pages/animaux.js
+"use client"; 
 import { useState } from "react";
 
 const animauxData = {
